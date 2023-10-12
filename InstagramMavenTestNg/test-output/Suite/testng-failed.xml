@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite thread-count="4" parallel="tests" name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="extendReport.ExtentTestNGIReporterListener"/>
+  </listeners>
+  <test thread-count="4" parallel="classes" name="ChromeTest(failed)">
+    <parameter name="browser" value="Chrome"/>
+    <classes>
+      <class name="TestClassPakage.TestClassForSignUp">
+        <methods>
+          <include name="openLoginPage"/>
+          <include name="logout"/>
+          <include name="verifyLoginCredentials"/>
+          <include name="luanchbrowser"/>
+          <include name="luanchbrowser"/>
+          <include name="verifyLoginCredentials2"/>
+          <include name="closebrowser"/>
+        </methods>
+      </class> <!-- TestClassPakage.TestClassForSignUp -->
+      <class name="TestClassPakage.TestClassForLoginPage">
+        <methods>
+          <include name="verifyUser"/>
+          <include name="closebrowser"/>
+          <include name="logout"/>
+          <include name="openLoginPage"/>
+          <include name="createObject"/>
+          <include name="luanchbrowser"/>
+        </methods>
+      </class> <!-- TestClassPakage.TestClassForLoginPage -->
+    </classes>
+  </test> <!-- ChromeTest(failed) -->
+  <test thread-count="4" parallel="classes" name="EdgeTest(failed)">
+    <parameter name="browser" value="Edge"/>
+    <classes>
+      <class name="TestClassPakage.TestClassForSignUp">
+        <methods>
+          <include name="openLoginPage"/>
+          <include name="logout"/>
+          <include name="verifyLoginCredentials"/>
+          <include name="luanchbrowser"/>
+          <include name="luanchbrowser"/>
+          <include name="verifyLoginCredentials2"/>
+          <include name="closebrowser"/>
+        </methods>
+      </class> <!-- TestClassPakage.TestClassForSignUp -->
+      <class name="TestClassPakage.TestClassForFacebookLogin">
+        <methods>
+          <include name="openLoginPage"/>
+          <include name="closebrowser"/>
+          <include name="createObject"/>
+          <include name="luanchbrowser"/>
+          <include name="verifyLoginCredentials"/>
+          <include name="logout"/>
+        </methods>
+      </class> <!-- TestClassPakage.TestClassForFacebookLogin -->
+      <class name="TestClassPakage.TestClassForLoginPage">
+        <methods>
+          <include name="verifyUser"/>
+          <include name="closebrowser"/>
+          <include name="logout"/>
+          <include name="openLoginPage"/>
+          <include name="createObject"/>
+          <include name="luanchbrowser"/>
+        </methods>
+      </class> <!-- TestClassPakage.TestClassForLoginPage -->
+    </classes>
+  </test> <!-- EdgeTest(failed) -->
+</suite> <!-- Failed suite [Suite] -->

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite" thread-count="4" parallel="tests">
+	
+	<listeners>
+		<listener class-name="extendReport.ExtentTestNGIReporterListener"></listener>
+	</listeners>
+		
+  <test  name="ChromeTest"  parallel="classes" >
+	  <parameter name="browser" value="Chrome" ></parameter>   
+	   <classes>
+	  <class name="TestClassPakage.TestClassForLoginPage"/>
+	  <class name="TestClassPakage.TestClassForFacebookLogin"/>
+      <class name="TestClassPakage.TestClassForForgotPassword"/>
+      <class name="TestClassPakage.TestClassForSignUp"/>
+        
+    </classes>
+  </test> <!-- Test -->
+  
+  
+ <!--<test  name="FirefoxTest" parallel="classes">
+	  <parameter name="browser" value="Firefox"></parameter>   
+	   <classes>
+	  <class name="TestClassPakage.TestClassForLoginPage"/>
+	  <class name="TestClassPakage.TestClassForFacebookLogin"/>
+      <class name="TestClassPakage.TestClassForForgotPassword"/>
+      <class name="TestClassPakage.TestClassForSignUp"/>
+        
+    </classes>
+  </test> Test -->
+  
+  <test  name="EdgeTest" parallel="classes">
+	  <parameter name="browser" value="Edge"></parameter>   
+	   <classes>
+	  <class name="TestClassPakage.TestClassForLoginPage"/>
+	  <class name="TestClassPakage.TestClassForFacebookLogin"/>
+      <class name="TestClassPakage.TestClassForForgotPassword"/>
+      <class name="TestClassPakage.TestClassForSignUp"/>
+        
+    </classes>
+  </test> <!--Test -->
+ 
+</suite> <!-- Suite -->
