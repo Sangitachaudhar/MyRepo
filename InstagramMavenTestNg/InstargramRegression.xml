@@ -29,7 +29,7 @@
     </classes>
   </test> Test -->
   
-  <test  name="EdgeTest" parallel="classes">
+ <test  name="EdgeTest" parallel="classes">
 	  <parameter name="browser" value="Edge"></parameter>   
 	   <classes>
 	  <class name="TestClassPakage.TestClassForLoginPage"/>
@@ -38,6 +38,6 @@
       <class name="TestClassPakage.TestClassForSignUp"/>
         
     </classes>
-  </test> <!--Test -->
+  </test> <!-- Test -->
  
 </suite> <!-- Suite -->

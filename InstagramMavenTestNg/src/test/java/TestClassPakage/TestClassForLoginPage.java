@@ -20,6 +20,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -95,9 +96,14 @@ public class TestClassForLoginPage extends Browser {
 		 password=Utility.getDataFromExcelsheet(path,"Sheet1", 1, 1);
 				 
 		 System.out.println(userName+"\n"+password);
-				 
-//		 System.out.println(Utility.getDataFromExcelsheet(path, "Sheet1", 6, 1));
+		 System.out.println("for testing:::"+userName+"\n"+password);		 
+
+		 SoftAssert softAssert=new SoftAssert();
+		 
+		 String expectedData=userName;
+		 String actualResult=userName;
 		
+		 softAssert.assertEquals(expectedData, actualResult,"Pass");
 		
 		 loginPage.clickUserName(userName);
 		 loginPage.clickPassword(password);

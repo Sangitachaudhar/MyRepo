@@ -3,6 +3,7 @@ package TestClassPakage;
 import java.io.IOException;
 import java.time.Duration;
 
+import org.apache.poi.EncryptedDocumentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -66,20 +67,42 @@ public class TestClassForSignUp extends Browser {
 		}
 		
 		@Test(priority=1)
-		public void verifyLoginCredentials() throws InterruptedException
+		public void verifyLoginCredentials() throws InterruptedException, EncryptedDocumentException, IOException
 		{
 			Thread.sleep(3000);
 			
-			signUpPage.clickSignupButton("sangita@gmil.com", "Sangita", "Sangita Chaudhar", "A12334");
+			 String userName = null;
+			 String password = null;
+			 String gmailID="";
+			 
+			 String path="src\\test\\resources\\TestData\\mytestData.xlsx";
+
+			 userName=Utility.getDataFromExcelsheet(path,"Sheet1", 1, 0);
+			 password=Utility.getDataFromExcelsheet(path,"Sheet1", 1, 1);
+			 gmailID=Utility.getDataFromExcelsheet(path, "Sheet1", 2, 2);
+			 
+			signUpPage.clickSignupButton(gmailID,userName,userName,password);
+//			signUpPage.clickSignupButton("sangita@gmil.com", "Sangita", "Sangita Chaudhar", "A12334");
 		}
 		
 		
 		@Test(priority=1)
-		public void verifyLoginCredentials2() throws InterruptedException
+		public void verifyLoginCredentials2() throws InterruptedException, EncryptedDocumentException, IOException
 		{
 			Thread.sleep(3000);
+			 String userName = null;
+			 String password = null;
+			 String mobileNo="";
+			 
+			 String path="src\\test\\resources\\TestData\\mytestData.xlsx";
+
+			 userName=Utility.getDataFromExcelsheet(path,"Sheet1", 1, 0);
+			 password=Utility.getDataFromExcelsheet(path,"Sheet1", 1, 1);
+			 mobileNo=Utility.getDataFromExcelsheet(path, "Sheet1", 3, 2);
+			 
+			signUpPage.clickSignupButton(mobileNo,userName,userName,password);
 			
-			signUpPage.clickSignupButton("7656543245", "Sangita", "Sangita Chaudhar", "A12334");
+//			signUpPage.clickSignupButton("7656543245", "Sangita", "Sangita Chaudhar", "A12334");
 		}
 		
 		@AfterMethod

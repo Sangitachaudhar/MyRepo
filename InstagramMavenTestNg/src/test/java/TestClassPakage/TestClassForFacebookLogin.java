@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.time.Duration;
 
 import org.apache.commons.math3.analysis.function.Log;
+import org.apache.poi.EncryptedDocumentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -69,11 +70,23 @@ public class TestClassForFacebookLogin extends Browser {
 	}
 	
 	@Test
-	public void verifyLoginCredentials()
+	public void verifyLoginCredentials() throws EncryptedDocumentException, IOException
 	{
 		testId="TC004";
 		
-		loginWithFacebook.clickLoginButton("Sangita", "S@133435");
+		 String userName = null;
+		 String password = null;
+
+		 String path="src\\test\\resources\\TestData\\mytestData.xlsx";
+
+		 userName=Utility.getDataFromExcelsheet(path,"Sheet1", 1, 0);
+				 
+		 password=Utility.getDataFromExcelsheet(path,"Sheet1", 1, 1);
+				 
+		 System.out.println("facebook:"+userName+"\n"+password);
+		
+//		loginWithFacebook.clickLoginButton("Sangita", "S@133435");
+		loginWithFacebook.clickLoginButton(userName,password);
 		
 	}
 	

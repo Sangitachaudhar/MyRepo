@@ -7,32 +7,16 @@
   <test thread-count="4" parallel="classes" name="ChromeTest(failed)">
     <parameter name="browser" value="Chrome"/>
     <classes>
-      <class name="TestClassPakage.TestClassForSignUp">
+      <class name="TestClassPakage.TestClassForForgotPassword">
         <methods>
-          <include name="openLoginPage"/>
+          <include name="luanchbrowser"/>
           <include name="logout"/>
+          <include name="luanchbrowser"/>
+          <include name="openLoginPage"/>
           <include name="verifyLoginCredentials"/>
-          <include name="luanchbrowser"/>
-          <include name="luanchbrowser"/>
-          <include name="verifyLoginCredentials2"/>
           <include name="closebrowser"/>
         </methods>
-      </class> <!-- TestClassPakage.TestClassForSignUp -->
-      <class name="TestClassPakage.TestClassForLoginPage">
-        <methods>
-          <include name="verifyUser"/>
-          <include name="closebrowser"/>
-          <include name="logout"/>
-          <include name="openLoginPage"/>
-          <include name="createObject"/>
-          <include name="luanchbrowser"/>
-        </methods>
-      </class> <!-- TestClassPakage.TestClassForLoginPage -->
-    </classes>
-  </test> <!-- ChromeTest(failed) -->
-  <test thread-count="4" parallel="classes" name="EdgeTest(failed)">
-    <parameter name="browser" value="Edge"/>
-    <classes>
+      </class> <!-- TestClassPakage.TestClassForForgotPassword -->
       <class name="TestClassPakage.TestClassForSignUp">
         <methods>
           <include name="openLoginPage"/>
@@ -65,5 +49,5 @@
         </methods>
       </class> <!-- TestClassPakage.TestClassForLoginPage -->
     </classes>
-  </test> <!-- EdgeTest(failed) -->
+  </test> <!-- ChromeTest(failed) -->
 </suite> <!-- Failed suite [Suite] -->

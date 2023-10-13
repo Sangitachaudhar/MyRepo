@@ -3,6 +3,7 @@ package TestClassPakage;
 import java.io.IOException;
 import java.time.Duration;
 
+import org.apache.poi.EncryptedDocumentException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -66,11 +67,19 @@ public class TestClassForForgotPassword extends Browser{
 		}
 		
 		@Test
-		public void verifyLoginCredentials() throws InterruptedException
+		public void verifyLoginCredentials() throws InterruptedException, EncryptedDocumentException, IOException
 		{
-			Thread.sleep(3000);
+			 Thread.sleep(3000);
 			
-			forgotPasswordPage.clickSendLinkButton("sangita@gmail.com");
+			 String gmailID = null;
+			 
+			 String path="src\\test\\resources\\TestData\\mytestData.xlsx";
+
+			 gmailID=Utility.getDataFromExcelsheet(path,"Sheet1", 3, 0);
+				 
+			 System.out.println("forgotpassword:"+gmailID);
+			 forgotPasswordPage.clickSendLinkButton(gmailID);
+
 			
 		}
 		
@@ -81,8 +90,7 @@ public class TestClassForForgotPassword extends Browser{
 			if(ITestResult.FAILURE==result.getStatus())
 			{
 				//capture screenshot
-				Utility.captureScreenshot(testId, driver);
-				
+				Utility.captureScreenshot(testId, driver);	
 			
 			}
 		}
